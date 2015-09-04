@@ -23,13 +23,14 @@ var Article = React.createClass({
 		if (this.isMounted()) {
 			$.get(apiCall, (function (data) {
 				var articles = data.response.docs,
-				    randomizedIndex = util.getRandomIntInclusive(0, articles.length); // pick a random article on that page of results
+				    // an array
+				chosenArticle = articles.getValueFromRandomIndex(); // pick a random article on that page of results, see util.js
 
 				this.setState({
-					headline: articles[randomizedIndex].headline.main,
-					lead: articles[randomizedIndex].lead_paragraph,
-					source: articles[randomizedIndex].source,
-					link: articles[randomizedIndex].web_url
+					headline: chosenArticle.headline.main,
+					lead: chosenArticle.lead_paragraph,
+					source: chosenArticle.source,
+					link: chosenArticle.web_url
 				});
 			}).bind(this));
 		}

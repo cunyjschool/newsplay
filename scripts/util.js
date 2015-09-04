@@ -1,14 +1,23 @@
 var Util = function(){};
 
+Util.prototype.getRandomIntInclusive = function(min,max){
+	if (max == null) {
+		max = min;
+		min = 0;
+    }
+    return min + Math.floor(Math.random() * (max - min + 1));
+};
+
+Array.prototype.getValueFromRandomIndex = function(){
+	var util = new Util();
+	return this[util.getRandomIntInclusive(0,this.length-1)];
+}
+
 Date.prototype.yyyymmdd = function() {
 	var yyyy = this.getFullYear().toString();
 	var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
 	var dd  = this.getDate().toString();
 	return yyyy + (mm[1] ? mm:"0" + mm[0]) + (dd[1] ? dd:"0" + dd[0]); // padding
-};
-
-Util.prototype.getRandomIntInclusive = function(min,max){
-	return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 Util.prototype.buildQuery = function(){

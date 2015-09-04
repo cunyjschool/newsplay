@@ -16,9 +16,11 @@ Util.prototype.buildQuery = function(){
 	var date = new Date();
 
 	var url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?',
-		begin = 'begin_date=' + date.yyyymmdd(),
+		q = 'q=new+york', // TODO user set keywords
+		begin = '&begin_date=' + date.yyyymmdd(),
 		end = '&end_date=' + date.yyyymmdd(),
 		sort = '&sort=newest',
+		fl = '&fl=web_url%2Clead_paragraph%2Cheadline%2Csection_name%2Csource', // only ask for relevant fields
 		page = '&page=' + this.getRandomIntInclusive(1,10), // get a random page from the results
 		apiKey = '&api-key=28257ad14bad04d08426a1ca4fd73a42%3A13%3A67431648';
 

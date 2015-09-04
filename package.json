@@ -4,19 +4,13 @@
   "description": "Prompts ways of writing/presenting/publishing news with different tools, to different audience, on different platforms",
   "main": "index.js",
   "dependencies": {
-    "babel": "^5.8.23",
-    "beefy": "^2.1.5",
-    "browserify": "^11.0.1",
     "react": "^0.13.3",
-    "watchify": "^3.4.0",
     "zeptojs": "^1.1.4"
   },
   "devDependencies": {
     "babel": "^5.8.23",
     "beefy": "^2.1.5",
-    "browserify": "^11.0.1",
-    "install": "^0.1.8",
-    "npm": "^2.14.2"
+    "browserify": "^11.0.1"
   },
   "scripts": {
     "transform-jsx": "babel scripts/src --out-dir scripts/build",

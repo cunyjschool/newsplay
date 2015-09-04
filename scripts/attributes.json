@@ -1,0 +1,20 @@
+[{
+    "name": "type",
+    "options":["news","feature","explainer","profile"]
+},
+{
+    "name": "method",
+    "options":["photo","audio","video","text","inforgraph"]  
+},
+{
+    "name": "length",
+    "options":["1 hour", "half-day","full day","week","3 weeks"]
+},
+{
+    "name": "social",
+    "options":["twitter","pinterest","intagram/flickr","youtube/vimeo","audioboo/soundcloud","thinglink/stipple"]
+},
+{
+    "name": "audience",
+    "options":["kids 8-12","kids 13-20","twentysomethings","adults","seniors"]
+}]

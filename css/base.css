@@ -1,10 +1,9 @@
 body {
   background: #fff;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1.7;
+  font: 15px/1.67 Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 30px;
+  box-sizing:border-box;
 }
 
 a {
@@ -28,7 +27,7 @@ code {
 
 h1,h2,h3,h4,p,ul {
   display: block;
-  margin: 0 0 15px;
+  margin: 0 0 1em;
   padding: 0;
 }
 
@@ -48,8 +47,26 @@ h2 {
 }
 section {
   position:relative;
-  margin:0 auto;
+  margin:0 auto 2em;
   width:66.66%;
+}
+table {
+  margin:0 0 1em;
+}
+table tr {
+  padding:0.2em 0;
+}
+table tr td:first-child {
+  text-transform: uppercase;
+  font-size:0.9em;
+  font-weight:bold;
+  padding-right:1em;
+}
+table tr td:last-child{
+  display:inline;
+  padding:0.2em 0.4em;
+  border: 1px solid #f2f2f2;
+  border-radius:5px;
 }
 
 .article .title{

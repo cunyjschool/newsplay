@@ -12,35 +12,35 @@ var AttributeAll = React.createClass({
 		});
 		return (
 			<div className="attributeAll">
-				{attributeOneNodes}
+				<h3>Now it is your turn to present this article with the following.</h3>
+				<table className="attributeOne">
+					{attributeOneNodes}
+				</table>
+				<h3>Want a new idea? Just refresh the page. Hint: <code>Cmd/Ctrl + R</code></h3>
 			</div>
 		);
 	}
 });
 
 var AttributeOne = React.createClass({
+	getInitialState: function() {
+    	return {
+    		option:''
+    	};
+  	},
+	componentDidMount: function(){
+		if (this.isMounted()){
+			this.setState({
+				option: this.props.options.getValueFromRandomIndex() // get a random option from json file whenever component reloads
+			});
+		}
+	},
 	render: function(){
-		var attributeOptionNodes = this.props.options.map(function(option){
-			return (
-				<AttributeOption option={option}>
-				</AttributeOption>
-			)
-		});
 		return (
-			<div className="attributeOne">
-				<h2 className={this.props.name}>{this.props.name}</h2>
-				{attributeOptionNodes}
-			</div>
-		);
-	}
-});
-
-var AttributeOption = React.createClass({
-	render:function(){
-		return (
-			<div className="attributeOption">
-				{this.props.option}
-			</div>
+			<tr>
+				<td className="optionName">{this.props.name}</td>
+				<td className="optionValue">{this.state.option}</td>
+			</tr>
 		);
 	}
 });

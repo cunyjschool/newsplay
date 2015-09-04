@@ -39,7 +39,7 @@ var Article = React.createClass({
 				<div className="content">
 					<h3 className="lead">{this.state.lead}</h3>
 					<p>Source: {this.state.source}</p>
-					<p><a href={this.state.link} target='_blank'>Original Article</a></p>
+					<p><a href={this.state.link} target="_blank">Original Article</a></p>
 				</div>
 			</div>
 		);

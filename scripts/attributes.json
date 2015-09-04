@@ -1,20 +1,20 @@
 [{
-    "name": "type",
+    "name": "Your article will be",
     "options":["news","feature","explainer","profile"]
 },
 {
-    "name": "method",
+    "name": "Your will use",
     "options":["photo","audio","video","text","inforgraph"]  
 },
 {
-    "name": "length",
-    "options":["1 hour", "half-day","full day","week","3 weeks"]
+    "name": "You have",
+    "options":["1 hour", "half-day","full day","one week","3 weeks"]
 },
 {
-    "name": "social",
+    "name": "You will put it on",
     "options":["twitter","pinterest","intagram/flickr","youtube/vimeo","audioboo/soundcloud","thinglink/stipple"]
 },
 {
-    "name": "audience",
+    "name": "Your audience is",
     "options":["kids 8-12","kids 13-20","twentysomethings","adults","seniors"]
 }]

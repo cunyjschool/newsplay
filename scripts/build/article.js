@@ -10,8 +10,10 @@ var Article = React.createClass({
 
 	getInitialState: function getInitialState() {
 		return {
+			headline: '',
+			lead: '',
 			source: '',
-			lead: ''
+			link: ''
 		};
 	},
 	componentDidMount: function componentDidMount() {
@@ -21,11 +23,13 @@ var Article = React.createClass({
 		if (this.isMounted()) {
 			$.get(apiCall, (function (data) {
 				var articles = data.response.docs,
-				    randomizedIndex = util.getRandomIntInclusive(1, articles.length); // pick a random article on that page of results
+				    randomizedIndex = util.getRandomIntInclusive(0, articles.length); // pick a random article on that page of results
 
 				this.setState({
+					headline: articles[randomizedIndex].headline.main,
+					lead: articles[randomizedIndex].lead_paragraph,
 					source: articles[randomizedIndex].source,
-					lead: articles[randomizedIndex].lead_paragraph
+					link: articles[randomizedIndex].web_url
 				});
 			}).bind(this));
 		}
@@ -35,15 +39,37 @@ var Article = React.createClass({
 			'div',
 			{ className: 'article' },
 			React.createElement(
-				'p',
-				{ className: 'lead' },
-				this.state.lead
+				'div',
+				{ className: 'title' },
+				React.createElement(
+					'h3',
+					{ className: 'headline' },
+					this.state.headline
+				)
 			),
 			React.createElement(
-				'small',
-				null,
-				'Source: ',
-				this.state.source
+				'div',
+				{ className: 'content' },
+				React.createElement(
+					'h3',
+					{ className: 'lead' },
+					this.state.lead
+				),
+				React.createElement(
+					'p',
+					null,
+					'Source: ',
+					this.state.source
+				),
+				React.createElement(
+					'p',
+					null,
+					React.createElement(
+						'a',
+						{ href: this.state.link, target: '_blank' },
+						'Original Article'
+					)
+				)
 			)
 		);
 	}

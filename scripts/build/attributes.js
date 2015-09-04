@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var Util = require('../util.js');
 var data = require('../attributes.json');
 
 var AttributeAll = React.createClass({
@@ -13,7 +14,26 @@ var AttributeAll = React.createClass({
 		return React.createElement(
 			'div',
 			{ className: 'attributeAll' },
-			attributeOneNodes
+			React.createElement(
+				'h3',
+				null,
+				'Now it is your turn to present this article with the following.'
+			),
+			React.createElement(
+				'table',
+				{ className: 'attributeOne' },
+				attributeOneNodes
+			),
+			React.createElement(
+				'h3',
+				null,
+				'Want a new idea? Just refresh the page. Hint: ',
+				React.createElement(
+					'code',
+					null,
+					'Cmd/Ctrl + R'
+				)
+			)
 		);
 	}
 });
@@ -21,31 +41,32 @@ var AttributeAll = React.createClass({
 var AttributeOne = React.createClass({
 	displayName: 'AttributeOne',
 
+	getInitialState: function getInitialState() {
+		return {
+			option: ''
+		};
+	},
+	componentDidMount: function componentDidMount() {
+		if (this.isMounted()) {
+			this.setState({
+				option: this.props.options.getValueFromRandomIndex() // get a random option from json file whenever component reloads
+			});
+		}
+	},
 	render: function render() {
-		var attributeOptionNodes = this.props.options.map(function (option) {
-			return React.createElement(AttributeOption, { option: option });
-		});
 		return React.createElement(
-			'div',
-			{ className: 'attributeOne' },
+			'tr',
+			null,
 			React.createElement(
-				'h2',
-				{ className: this.props.name },
+				'td',
+				{ className: 'optionName' },
 				this.props.name
 			),
-			attributeOptionNodes
-		);
-	}
-});
-
-var AttributeOption = React.createClass({
-	displayName: 'AttributeOption',
-
-	render: function render() {
-		return React.createElement(
-			'div',
-			{ className: 'attributeOption' },
-			this.props.option
+			React.createElement(
+				'td',
+				{ className: 'optionValue' },
+				this.state.option
+			)
 		);
 	}
 });

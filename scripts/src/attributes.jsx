@@ -1,4 +1,5 @@
 var React = require('react');
+var Util = require('../util.js');
 var data = require('../attributes.json');
 
 var AttributeAll = React.createClass({

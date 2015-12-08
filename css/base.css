@@ -3,6 +3,7 @@ body {
   font: 15px/1.67 Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 30px;
+  color:#333;
   box-sizing:border-box;
 }
 
@@ -37,7 +38,7 @@ h1,h2,h3,h4 {
 h1 {
   font-size: 2.5em;
 }
-h1.welcome {
+.welcome {
   text-align: center;
   font-weight:normal;
   letter-spacing: 0.1em;
@@ -52,20 +53,24 @@ section {
 }
 table {
   margin:0 0 1em;
-}
-table tr {
-  padding:0.2em 0;
+  padding:1em;
+  border-spacing:1em;
+  border:1px solid #eee;
 }
 table tr td:first-child {
-  text-transform: uppercase;
-  font-size:0.9em;
-  font-weight:bold;
+  /*font-weight:bold;*/
   padding-right:1em;
 }
+table tr td:first-child:first-letter{
+  text-transform: capitalize;
+}
 table tr td:last-child{
+  text-transform: uppercase;
+  font-style:bold;
   display:inline;
-  padding:0.2em 0.4em;
-  border: 1px solid #f2f2f2;
+  padding:0.4em 0.8em;
+  background:#f2f2f2;
+  border: 1px solid #eee;
   border-radius:5px;
 }
 

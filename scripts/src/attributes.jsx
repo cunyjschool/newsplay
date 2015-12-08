@@ -17,7 +17,6 @@ var AttributeAll = React.createClass({
 				<table className="attributeOne">
 					{attributeOneNodes}
 				</table>
-				<h3>Want a new idea? Just refresh the page. Hint: <code>Cmd/Ctrl + R</code></h3>
 			</div>
 		);
 	}

@@ -23,16 +23,6 @@ var AttributeAll = React.createClass({
 				'table',
 				{ className: 'attributeOne' },
 				attributeOneNodes
-			),
-			React.createElement(
-				'h3',
-				null,
-				'Want a new idea? Just refresh the page. Hint: ',
-				React.createElement(
-					'code',
-					null,
-					'Cmd/Ctrl + R'
-				)
 			)
 		);
 	}

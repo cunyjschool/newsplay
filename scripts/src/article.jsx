@@ -9,7 +9,8 @@ var Article = React.createClass({
 			headline:'',
 			lead: '',
 			source: '',
-			link: ''
+			link: '',
+			thumb: false
 		}
 	},
 	componentDidMount: function(){
@@ -19,27 +20,47 @@ var Article = React.createClass({
 		if (this.isMounted()){
 			$.get(apiCall,function(data){
 				var articles = data.response.docs, // an array
-					chosenArticle = articles.getValueFromRandomIndex(); // pick a random article on that page of results, see util.js
+					chosenArticle = articles.getValueFromRandomIndex(), // pick a random article on that page of results, see util.js
+					possibleMedia;
+
+				if (chosenArticle.multimedia[0] != undefined){  //this first object is thumbnail for the article
+					possibleMedia = util.buildMediaUrl(chosenArticle.multimedia[0]); //see util.js for static media url reconstruction
+				} else {
+					possibleMedia = false
+				}
 
 				this.setState({
 					headline: chosenArticle.headline.main,
 					lead: chosenArticle.lead_paragraph,
 					source: chosenArticle.source,
-					link: chosenArticle.web_url
+					link: chosenArticle.web_url,
+					thumb: possibleMedia
 				});
 			}.bind(this));
 		}
 	},
 	render: function(){
+		var image;
+
+		// only insert thumb if there is one
+		if (this.state.thumb) {
+			image = <img src={this.state.thumb}/>
+		} else {
+			image = <p>¶</p>
+		}
+
 		return (
 			<div className="article">
 				<div className="title">
-					<h3 className="headline">{this.state.headline}</h3>
+					<h1 className="headline">{this.state.headline}</h1>
 				</div>
 				<div className="content">
-					<h3 className="lead">{this.state.lead}</h3>
-					<p>Source: {this.state.source}</p>
-					<p><a href={this.state.link} target="_blank">Original Article</a></p>
+					<p className="lead">{this.state.lead}</p>
+					{image}
+					<div className="source">
+						<p>Source:{this.state.source}</p>
+						<button><a href={this.state.link} target="_blank">visit the original article</a></button>
+					</div>
 				</div>
 			</div>
 		);

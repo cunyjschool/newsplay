@@ -9,15 +9,19 @@ var AttributeAll = React.createClass({
 
 	render: function render() {
 		var attributeOneNodes = this.props.data.map(function (attributeOne) {
-			return React.createElement(AttributeOne, { name: attributeOne.name, options: attributeOne.options });
+			return React.createElement(AttributeOne, { name: attributeOne.name, options: attributeOne.options, color: attributeOne.color });
 		});
 		return React.createElement(
 			'div',
 			{ className: 'attributeAll' },
 			React.createElement(
-				'h3',
+				'p',
 				null,
-				'Now it is your turn to present this article with the following.'
+				React.createElement(
+					'strong',
+					null,
+					'How will you present the story with the following mix?'
+				)
 			),
 			React.createElement(
 				'table',
@@ -54,7 +58,7 @@ var AttributeOne = React.createClass({
 			),
 			React.createElement(
 				'td',
-				{ className: 'optionValue' },
+				{ className: 'optionValue', style: { borderColor: this.props.color } },
 				this.state.option
 			)
 		);

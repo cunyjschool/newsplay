@@ -7,13 +7,13 @@ var AttributeAll = React.createClass({
 	render: function(){
 		var attributeOneNodes = this.props.data.map(function(attributeOne){
 			return (
-				<AttributeOne name={attributeOne.name} options={attributeOne.options}>
+				<AttributeOne name={attributeOne.name} options={attributeOne.options} color={attributeOne.color}>
 				</AttributeOne>
 			);
 		});
 		return (
 			<div className="attributeAll">
-				<h3>Now it is your turn to present this article with the following.</h3>
+				<p><strong>How will you present the story with the following mix?</strong></p>
 				<table className="attributeOne">
 					{attributeOneNodes}
 				</table>
@@ -39,7 +39,7 @@ var AttributeOne = React.createClass({
 		return (
 			<tr>
 				<td className="optionName">{this.props.name}</td>
-				<td className="optionValue">{this.state.option}</td>
+				<td className="optionValue" style={{borderColor:this.props.color}}>{this.state.option}</td>
 			</tr>
 		);
 	}

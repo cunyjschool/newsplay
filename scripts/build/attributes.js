@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var Util = require('../util.js');
 var data = require('../attributes.json');
 
 var AttributeAll = React.createClass({
@@ -8,12 +9,25 @@ var AttributeAll = React.createClass({
 
 	render: function render() {
 		var attributeOneNodes = this.props.data.map(function (attributeOne) {
-			return React.createElement(AttributeOne, { name: attributeOne.name, options: attributeOne.options });
+			return React.createElement(AttributeOne, { name: attributeOne.name, options: attributeOne.options, color: attributeOne.color });
 		});
 		return React.createElement(
 			'div',
 			{ className: 'attributeAll' },
-			attributeOneNodes
+			React.createElement(
+				'p',
+				null,
+				React.createElement(
+					'strong',
+					null,
+					'How will you present the story with the following mix?'
+				)
+			),
+			React.createElement(
+				'table',
+				{ className: 'attributeOne' },
+				attributeOneNodes
+			)
 		);
 	}
 });
@@ -21,31 +35,32 @@ var AttributeAll = React.createClass({
 var AttributeOne = React.createClass({
 	displayName: 'AttributeOne',
 
+	getInitialState: function getInitialState() {
+		return {
+			option: ''
+		};
+	},
+	componentDidMount: function componentDidMount() {
+		if (this.isMounted()) {
+			this.setState({
+				option: this.props.options.getValueFromRandomIndex() // get a random option from json file whenever component reloads
+			});
+		}
+	},
 	render: function render() {
-		var attributeOptionNodes = this.props.options.map(function (option) {
-			return React.createElement(AttributeOption, { option: option });
-		});
 		return React.createElement(
-			'div',
-			{ className: 'attributeOne' },
+			'tr',
+			null,
 			React.createElement(
-				'h2',
-				{ className: this.props.name },
+				'td',
+				{ className: 'optionName' },
 				this.props.name
 			),
-			attributeOptionNodes
-		);
-	}
-});
-
-var AttributeOption = React.createClass({
-	displayName: 'AttributeOption',
-
-	render: function render() {
-		return React.createElement(
-			'div',
-			{ className: 'attributeOption' },
-			this.props.option
+			React.createElement(
+				'td',
+				{ className: 'optionValue', style: { borderColor: this.props.color } },
+				this.state.option
+			)
 		);
 	}
 });

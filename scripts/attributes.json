@@ -1,20 +1,25 @@
 [{
-    "name": "type",
-    "options":["news","feature","explainer","profile"]
+    "name": "Story Type",
+    "options":["news","feature","explainer","profile"],
+    "color": "#F2C14E"
 },
 {
-    "name": "method",
-    "options":["photo","audio","video","text","inforgraph"]  
+    "name": "Supplemental Multimedia",
+    "options":["photo","audio","video","infographic", "VR"],
+    "color": "#F78154"
 },
 {
-    "name": "length",
-    "options":["1 hour", "half-day","full day","week","3 weeks"]
+    "name": "Deadline in",
+    "options":["1 hour", "half-day","full day","one week","3 weeks"],
+    "color":"#4D9078"
 },
 {
-    "name": "social",
-    "options":["twitter","pinterest","intagram/flickr","youtube/vimeo","audioboo/soundcloud","thinglink/stipple"]
+    "name": "Supplemental Platform",
+    "options":["twitter","pinterest","instagram","youtube/vimeo","soundcloud","snapchat"],
+    "color":"#B4436C"
 },
 {
-    "name": "audience",
-    "options":["kids 8-12","kids 13-20","twentysomethings","adults","seniors"]
+    "name": "Audience Age",
+    "options":["18 and under","twentysomethings","30+","seniors"],
+    "color":"#995FA3"
 }]

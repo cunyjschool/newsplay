@@ -10,8 +10,11 @@ var Article = React.createClass({
 
 	getInitialState: function getInitialState() {
 		return {
+			headline: '',
+			lead: '',
 			source: '',
-			lead: ''
+			link: '',
+			thumb: false
 		};
 	},
 	componentDidMount: function componentDidMount() {
@@ -21,29 +24,82 @@ var Article = React.createClass({
 		if (this.isMounted()) {
 			$.get(apiCall, (function (data) {
 				var articles = data.response.docs,
-				    randomizedIndex = util.getRandomIntInclusive(1, articles.length); // pick a random article on that page of results
+				    // an array
+				chosenArticle = articles.getValueFromRandomIndex(),
+				    // pick a random article on that page of results, see util.js
+				possibleMedia;
+
+				if (chosenArticle.multimedia[0] != undefined) {
+					//this first object is thumbnail for the article
+					possibleMedia = util.buildMediaUrl(chosenArticle.multimedia[0]); //see util.js for static media url reconstruction
+				} else {
+						possibleMedia = false;
+					}
 
 				this.setState({
-					source: articles[randomizedIndex].source,
-					lead: articles[randomizedIndex].lead_paragraph
+					headline: chosenArticle.headline.main,
+					lead: chosenArticle.lead_paragraph,
+					source: chosenArticle.source,
+					link: chosenArticle.web_url,
+					thumb: possibleMedia
 				});
 			}).bind(this));
 		}
 	},
 	render: function render() {
+		var image;
+
+		// only insert thumb if there is one
+		if (this.state.thumb) {
+			image = React.createElement('img', { src: this.state.thumb });
+		} else {
+			image = React.createElement(
+				'p',
+				null,
+				'¶'
+			);
+		}
+
 		return React.createElement(
 			'div',
 			{ className: 'article' },
 			React.createElement(
-				'p',
-				{ className: 'lead' },
-				this.state.lead
+				'div',
+				{ className: 'title' },
+				React.createElement(
+					'h1',
+					{ className: 'headline' },
+					this.state.headline
+				)
 			),
 			React.createElement(
-				'small',
-				null,
-				'Source: ',
-				this.state.source
+				'div',
+				{ className: 'content' },
+				React.createElement(
+					'p',
+					{ className: 'lead' },
+					this.state.lead
+				),
+				image,
+				React.createElement(
+					'div',
+					{ className: 'source' },
+					React.createElement(
+						'p',
+						null,
+						'Source:',
+						this.state.source
+					),
+					React.createElement(
+						'button',
+						null,
+						React.createElement(
+							'a',
+							{ href: this.state.link, target: '_blank' },
+							'visit the original article'
+						)
+					)
+				)
 			)
 		);
 	}

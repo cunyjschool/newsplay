@@ -67,22 +67,23 @@ header {
   border-bottom: 1px solid #FFEFFF; }
   header h3 {
     margin: 1em 2em 0; }
-    header h3 span.help {
-      font-weight: 800;
-      margin: 0.2em 0 0 1em;
-      padding: 0.8em;
-      background: #CFFCFF;
-      border-radius: 50%;
-      position: absolute;
-      cursor: pointer; }
-      header h3 span.help:before {
-        position: absolute;
-        content: "?";
-        margin: -14px 0 0 -3px; }
   header button {
     position: absolute;
     top: 2em;
-    right: 2em; }
+    right: 2em;
+    color: #fff;
+    background: #41B63B; }
+    header button.help {
+      right: auto;
+      top: 2em;
+      margin: 2px 0 0 10px;
+      border-radius: 50%;
+      background: #CFFCFF;
+      color: #4d4d4d; }
+      header button.help:before {
+        content: "?";
+        position: absolute;
+        margin: -7px 0 0 -3px; }
 
 section {
   height: inherit; }
@@ -92,8 +93,6 @@ button {
   box-shadow: none;
   border-radius: 5px;
   padding: 1em;
-  color: #fff;
-  background: #41B63B;
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 0.1em;

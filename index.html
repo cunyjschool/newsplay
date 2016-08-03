@@ -6,11 +6,18 @@
     <title>NewsPlay</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway:800,500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/introjs.css">
+    <script src="scripts/intro.js"></script>
   </head>
   <body>
     <header class="col12">
-      <h3 class="col6">NewsPlay <span>a quick game to practice creativity in reporting</span></h3>
-      <button onClick="window.location.reload();" class="col2">generate new mix</button>
+      <h3 class="col6">NewsPlay
+        <span>a quick game to practice creativity in reporting</span>
+        <button class="help" onClick="startIntro();"></button>
+      </h3>
+      <div class="col6">
+        <button id="generate" onClick="window.location.reload();">generate new mix</button>
+      </div>
     </header>
     </header>
     <div class="main col12">
@@ -18,5 +25,37 @@
       <section class="col6" id="attributes"></section>
     </div>
     <script src="scripts/bundle.js"></script>
+    <script>
+      function startIntro(){
+        var intro = introJs();
+            intro.setOptions({
+              steps: [
+                {
+                  intro: "Hi! Welcome to NewsPlay."
+                },
+                {
+                  element: "#headline",
+                  intro: "You have one fresh article from the NYT Article Search API.",
+                  position: 'right'
+                },
+                {
+                  element: '#criteria',
+                  intro: '...And a set of new criteria to re-think about reporting this article.',
+                  position: 'left'
+                },
+                {
+                  element: '#generate',
+                  intro: "Remember, there are always more ideas!",
+                  position: 'bottom'
+                },
+                {
+                  intro:"Have fun! Brought to you by CUNY Journalism School."
+                }
+              ]
+            });
+
+        intro.start();
+      }
+    </script>
   </body>
 </html>

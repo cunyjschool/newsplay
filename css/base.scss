@@ -71,28 +71,31 @@ header {
 
   h3 {
     margin:$pad1 $pad2 0;
-    span.help {
-      font-weight:800;
-      margin: 0.2em 0 0 1em;
-      padding: 0.8em;
-      background: #CFFCFF;
-      border-radius: 50%;
-      position: absolute;
-      cursor:pointer;
+  }
+
+  button {
+    position:absolute;
+    top:$pad2;
+    right:$pad2;
+    color:$white;
+    background:$green;
+
+    &.help {
+      right:auto;
+      top:$pad2;
+      margin:2px 0 0 10px;
+      border-radius:50%;
+      background:$cyan;
+      color:lighten($black,10%);
 
       &:before {
-        position:absolute;
         content:"?";
-        margin:-14px 0 0 -3px;
+        position: absolute;
+        margin:-7px 0 0 -3px;
       }
     }
   }
 
-  button {
-    position: absolute;
-    top:$pad2;
-    right:$pad2;
-  }
 }
 section {
   height:inherit;
@@ -102,8 +105,6 @@ button {
   box-shadow:none;
   border-radius:5px;
   padding:1em;
-  color:$white;
-  background:$green;
   text-transform: uppercase;
   font-weight:800;
   letter-spacing:0.1em;

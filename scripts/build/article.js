@@ -3,7 +3,6 @@
 var React = require('react');
 var $ = require('zeptojs');
 var Util = require('../util.js');
-var test = require('../attributes.json');
 
 var Article = React.createClass({
 	displayName: 'Article',
@@ -60,39 +59,31 @@ var Article = React.createClass({
 			'div',
 			{ className: 'article' },
 			React.createElement(
-				'div',
-				{ className: 'title' },
-				React.createElement(
-					'h1',
-					{ className: 'headline' },
-					this.state.headline
-				)
+				'h1',
+				{ className: 'headline' },
+				this.state.headline
+			),
+			React.createElement(
+				'p',
+				{ className: 'lead' },
+				this.state.lead
 			),
 			React.createElement(
 				'div',
-				{ className: 'content' },
+				{ className: 'source' },
 				React.createElement(
 					'p',
-					{ className: 'lead' },
-					this.state.lead
+					null,
+					'Source:',
+					this.state.source
 				),
 				React.createElement(
-					'div',
-					{ className: 'source' },
+					'button',
+					null,
 					React.createElement(
-						'p',
-						null,
-						'Source:',
-						this.state.source
-					),
-					React.createElement(
-						'button',
-						null,
-						React.createElement(
-							'a',
-							{ href: this.state.link, target: '_blank' },
-							'visit the original article'
-						)
+						'a',
+						{ href: this.state.link, target: '_blank' },
+						'visit the original article'
 					)
 				)
 			)

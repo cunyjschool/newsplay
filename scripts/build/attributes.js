@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var Util = require('../util.js');
 var data = require('../attributes.json');
 
 var AttributeAll = React.createClass({
@@ -20,7 +19,7 @@ var AttributeAll = React.createClass({
 				React.createElement(
 					'strong',
 					null,
-					'How will you present the story with the following mix?'
+					'Time to present the story with the new mix!'
 				)
 			),
 			React.createElement(
@@ -48,6 +47,10 @@ var AttributeOne = React.createClass({
 		}
 	},
 	render: function render() {
+		var style = {
+			borderColor: this.props.color,
+			color: this.props.color
+		};
 		return React.createElement(
 			'tr',
 			null,

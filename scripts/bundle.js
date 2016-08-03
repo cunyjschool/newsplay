@@ -21453,7 +21453,6 @@ module.exports=[{
 var React = require('react');
 var $ = require('zeptojs');
 var Util = require('../util.js');
-var test = require('../attributes.json');
 
 var Article = React.createClass({
 	displayName: 'Article',
@@ -21497,7 +21496,7 @@ var Article = React.createClass({
 		}
 	},
 	render: function render() {
-		var image;
+		// var image;
 
 		// only insert thumb if there is one
 		// if (this.state.thumb) {
@@ -21510,39 +21509,31 @@ var Article = React.createClass({
 			'div',
 			{ className: 'article' },
 			React.createElement(
-				'div',
-				{ className: 'title' },
-				React.createElement(
-					'h1',
-					{ className: 'headline' },
-					this.state.headline
-				)
+				'h1',
+				{ className: 'headline' },
+				this.state.headline
+			),
+			React.createElement(
+				'p',
+				{ className: 'lead' },
+				this.state.lead
 			),
 			React.createElement(
 				'div',
-				{ className: 'content' },
+				{ className: 'source' },
 				React.createElement(
 					'p',
-					{ className: 'lead' },
-					this.state.lead
+					null,
+					'Source:',
+					this.state.source
 				),
 				React.createElement(
-					'div',
-					{ className: 'source' },
+					'button',
+					null,
 					React.createElement(
-						'p',
-						null,
-						'Source:',
-						this.state.source
-					),
-					React.createElement(
-						'button',
-						null,
-						React.createElement(
-							'a',
-							{ href: this.state.link, target: '_blank' },
-							'visit the original article'
-						)
+						'a',
+						{ href: this.state.link, target: '_blank' },
+						'visit the original article'
 					)
 				)
 			)
@@ -21551,11 +21542,10 @@ var Article = React.createClass({
 });
 
 React.render(React.createElement(Article, null), document.getElementById('article'));
-},{"../attributes.json":159,"../util.js":162,"react":156,"zeptojs":157}],161:[function(require,module,exports){
+},{"../util.js":162,"react":156,"zeptojs":157}],161:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
-var Util = require('../util.js');
 var data = require('../attributes.json');
 
 var AttributeAll = React.createClass({
@@ -21574,7 +21564,7 @@ var AttributeAll = React.createClass({
 				React.createElement(
 					'strong',
 					null,
-					'How will you present the story with the following mix?'
+					'Time to present the story with the new mix!'
 				)
 			),
 			React.createElement(
@@ -21602,6 +21592,10 @@ var AttributeOne = React.createClass({
 		}
 	},
 	render: function render() {
+		var style = {
+			borderColor: this.props.color,
+			color: this.props.color
+		};
 		return React.createElement(
 			'tr',
 			null,
@@ -21620,7 +21614,7 @@ var AttributeOne = React.createClass({
 });
 
 React.render(React.createElement(AttributeAll, { data: data }), document.getElementById('attributes'));
-},{"../attributes.json":159,"../util.js":162,"react":156}],162:[function(require,module,exports){
+},{"../attributes.json":159,"react":156}],162:[function(require,module,exports){
 var Util = function(){};
 
 Array.prototype.getValueFromRandomIndex = function(){
@@ -21667,7 +21661,7 @@ Util.prototype.buildMediaUrl = function(partialurl){ //partial url will be acqui
 	var static = 'https://static01.nyt.com'; // server where the thumbnails live
 
 	return static + partialurl
-}
+};
 
 module.exports = Util;
 

@@ -44,6 +44,6 @@ Util.prototype.buildMediaUrl = function(partialurl){ //partial url will be acqui
 	var static = 'https://static01.nyt.com'; // server where the thumbnails live
 
 	return static + partialurl
-}
+};
 
 module.exports = Util;

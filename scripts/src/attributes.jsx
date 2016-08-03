@@ -1,5 +1,4 @@
 var React = require('react');
-var Util = require('../util.js');
 var data = require('../attributes.json');
 
 var AttributeAll = React.createClass({
@@ -13,7 +12,7 @@ var AttributeAll = React.createClass({
 		});
 		return (
 			<div className="attributeAll">
-				<p><strong>How will you present the story with the following mix?</strong></p>
+				<p><strong>Time to present the story with the new mix!</strong></p>
 				<table className="attributeOne">
 					{attributeOneNodes}
 				</table>
@@ -36,6 +35,10 @@ var AttributeOne = React.createClass({
 		}
 	},
 	render: function(){
+		var style = {
+			borderColor:this.props.color,
+			color:this.props.color
+		};
 		return (
 			<tr>
 				<td className="optionName">{this.props.name}</td>

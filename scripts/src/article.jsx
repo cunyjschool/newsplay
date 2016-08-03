@@ -50,7 +50,7 @@ var Article = React.createClass({
 
 		return (
 			<div className="article">
-				<h1 className="headline">{this.state.headline}</h1>
+				<h1 id="headline" className="headline">{this.state.headline}</h1>
 				<p className="lead">{this.state.lead}</p>
 				<div className="source">
 					<p>Source:{this.state.source}</p>

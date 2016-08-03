@@ -15,7 +15,7 @@ var AttributeAll = React.createClass({
 			{ className: 'attributeAll' },
 			React.createElement(
 				'p',
-				null,
+				{ id: 'criteria' },
 				React.createElement(
 					'strong',
 					null,

@@ -67,6 +67,18 @@ header {
   border-bottom: 1px solid #FFEFFF; }
   header h3 {
     margin: 1em 2em 0; }
+    header h3 span.help {
+      font-weight: 800;
+      margin: 0.2em 0 0 1em;
+      padding: 0.8em;
+      background: #CFFCFF;
+      border-radius: 50%;
+      position: absolute;
+      cursor: pointer; }
+      header h3 span.help:before {
+        position: absolute;
+        content: "?";
+        margin: -14px 0 0 -3px; }
   header button {
     position: absolute;
     top: 2em;
@@ -140,3 +152,5 @@ table {
   .article, .attributeAll {
     border: 0 !important;
     height: 50%; } }
+.introjs-helperNumberLayer {
+  display: none; }

@@ -60,7 +60,7 @@ var Article = React.createClass({
 			{ className: 'article' },
 			React.createElement(
 				'h1',
-				{ className: 'headline' },
+				{ id: 'headline', className: 'headline' },
 				this.state.headline
 			),
 			React.createElement(

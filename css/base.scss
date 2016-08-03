@@ -69,7 +69,25 @@ header {
   height:80px;
   border-bottom: 1px solid $pink;
 
-  h3 {margin:$pad1 $pad2 0;}
+  h3 {
+    margin:$pad1 $pad2 0;
+    span.help {
+      font-weight:800;
+      margin: 0.2em 0 0 1em;
+      padding: 0.8em;
+      background: #CFFCFF;
+      border-radius: 50%;
+      position: absolute;
+      cursor:pointer;
+
+      &:before {
+        position:absolute;
+        content:"?";
+        margin:-14px 0 0 -3px;
+      }
+    }
+  }
+
   button {
     position: absolute;
     top:$pad2;
@@ -159,4 +177,8 @@ table {
     border:0!important;
     height:50%;
   }
+}
+
+.introjs-helperNumberLayer {
+  display:none;
 }

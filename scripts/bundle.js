@@ -21500,15 +21500,11 @@ var Article = React.createClass({
 		var image;
 
 		// only insert thumb if there is one
-		if (this.state.thumb) {
-			image = React.createElement('img', { src: this.state.thumb });
-		} else {
-			image = React.createElement(
-				'p',
-				null,
-				'¶'
-			);
-		}
+		// if (this.state.thumb) {
+		// 	image = <img src={this.state.thumb}/>
+		// } else {
+		// 	image = <p>¶</p>
+		// }
 
 		return React.createElement(
 			'div',
@@ -21530,7 +21526,6 @@ var Article = React.createClass({
 					{ className: 'lead' },
 					this.state.lead
 				),
-				image,
 				React.createElement(
 					'div',
 					{ className: 'source' },

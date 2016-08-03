@@ -40,7 +40,7 @@ var Article = React.createClass({
 		}
 	},
 	render: function(){
-		var image;
+		// var image;
 
 		// only insert thumb if there is one
 		// if (this.state.thumb) {

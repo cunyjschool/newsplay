@@ -43,11 +43,11 @@ var Article = React.createClass({
 		var image;
 
 		// only insert thumb if there is one
-		if (this.state.thumb) {
-			image = <img src={this.state.thumb}/>
-		} else {
-			image = <p>¶</p>
-		}
+		// if (this.state.thumb) {
+		// 	image = <img src={this.state.thumb}/>
+		// } else {
+		// 	image = <p>¶</p>
+		// }
 
 		return (
 			<div className="article">
@@ -56,7 +56,6 @@ var Article = React.createClass({
 				</div>
 				<div className="content">
 					<p className="lead">{this.state.lead}</p>
-					{image}
 					<div className="source">
 						<p>Source:{this.state.source}</p>
 						<button><a href={this.state.link} target="_blank">visit the original article</a></button>

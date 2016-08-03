@@ -2,12 +2,40 @@
 // shim for using process in browser
 
 var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+(function () {
+  try {
+    cachedSetTimeout = setTimeout;
+  } catch (e) {
+    cachedSetTimeout = function () {
+      throw new Error('setTimeout is not defined');
+    }
+  }
+  try {
+    cachedClearTimeout = clearTimeout;
+  } catch (e) {
+    cachedClearTimeout = function () {
+      throw new Error('clearTimeout is not defined');
+    }
+  }
+} ())
 var queue = [];
 var draining = false;
 var currentQueue;
 var queueIndex = -1;
 
 function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
     draining = false;
     if (currentQueue.length) {
         queue = currentQueue.concat(queue);
@@ -23,7 +51,7 @@ function drainQueue() {
     if (draining) {
         return;
     }
-    var timeout = setTimeout(cleanUpNextTick);
+    var timeout = cachedSetTimeout.call(null, cleanUpNextTick);
     draining = true;
 
     var len = queue.length;
@@ -31,14 +59,16 @@ function drainQueue() {
         currentQueue = queue;
         queue = [];
         while (++queueIndex < len) {
-            currentQueue[queueIndex].run();
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
         }
         queueIndex = -1;
         len = queue.length;
     }
     currentQueue = null;
     draining = false;
-    clearTimeout(timeout);
+    cachedClearTimeout.call(null, timeout);
 }
 
 process.nextTick = function (fun) {
@@ -50,7 +80,7 @@ process.nextTick = function (fun) {
     }
     queue.push(new Item(fun, args));
     if (queue.length === 1 && !draining) {
-        setTimeout(drainQueue, 0);
+        cachedSetTimeout.call(null, drainQueue, 0);
     }
 };
 
@@ -83,7 +113,6 @@ process.binding = function (name) {
     throw new Error('process.binding is not supported');
 };
 
-// TODO(shtylman)
 process.cwd = function () { return '/' };
 process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
@@ -21395,23 +21424,28 @@ var attributes = require('./build/attributes.js');
 },{"./build/article.js":160,"./build/attributes.js":161}],159:[function(require,module,exports){
 module.exports=[{
     "name": "Story Type",
-    "options":["news","feature","explainer","profile"]
+    "options":["news","feature","explainer","profile"],
+    "color": "#F2C14E"
 },
 {
     "name": "Supplemental Multimedia",
-    "options":["photo","audio","video","infographic", "VR"]
+    "options":["photo","audio","video","infographic", "VR"],
+    "color": "#F78154"
 },
 {
     "name": "Deadline in",
-    "options":["1 hour", "half-day","full day","one week","3 weeks"]
+    "options":["1 hour", "half-day","full day","one week","3 weeks"],
+    "color":"#4D9078"
 },
 {
     "name": "Supplemental Platform",
-    "options":["twitter","pinterest","instagram","youtube/vimeo","soundcloud","snapchat"]
+    "options":["twitter","pinterest","instagram","youtube/vimeo","soundcloud","snapchat"],
+    "color":"#B4436C"
 },
 {
     "name": "Audience Age",
-    "options":["18 and under","twentysomethings","30+","seniors"]
+    "options":["18 and under","twentysomethings","30+","seniors"],
+    "color":"#995FA3"
 }]
 },{}],160:[function(require,module,exports){
 'use strict';
@@ -21429,7 +21463,8 @@ var Article = React.createClass({
 			headline: '',
 			lead: '',
 			source: '',
-			link: ''
+			link: '',
+			thumb: false
 		};
 	},
 	componentDidMount: function componentDidMount() {
@@ -21440,18 +21475,41 @@ var Article = React.createClass({
 			$.get(apiCall, (function (data) {
 				var articles = data.response.docs,
 				    // an array
-				chosenArticle = articles.getValueFromRandomIndex(); // pick a random article on that page of results, see util.js
+				chosenArticle = articles.getValueFromRandomIndex(),
+				    // pick a random article on that page of results, see util.js
+				possibleMedia;
+
+				if (chosenArticle.multimedia[0] != undefined) {
+					//this first object is thumbnail for the article
+					possibleMedia = util.buildMediaUrl(chosenArticle.multimedia[0]); //see util.js for static media url reconstruction
+				} else {
+						possibleMedia = false;
+					}
 
 				this.setState({
 					headline: chosenArticle.headline.main,
 					lead: chosenArticle.lead_paragraph,
 					source: chosenArticle.source,
-					link: chosenArticle.web_url
+					link: chosenArticle.web_url,
+					thumb: possibleMedia
 				});
 			}).bind(this));
 		}
 	},
 	render: function render() {
+		var image;
+
+		// only insert thumb if there is one
+		if (this.state.thumb) {
+			image = React.createElement('img', { src: this.state.thumb });
+		} else {
+			image = React.createElement(
+				'p',
+				null,
+				'¶'
+			);
+		}
+
 		return React.createElement(
 			'div',
 			{ className: 'article' },
@@ -21459,7 +21517,7 @@ var Article = React.createClass({
 				'div',
 				{ className: 'title' },
 				React.createElement(
-					'h3',
+					'h1',
 					{ className: 'headline' },
 					this.state.headline
 				)
@@ -21468,23 +21526,28 @@ var Article = React.createClass({
 				'div',
 				{ className: 'content' },
 				React.createElement(
-					'h3',
+					'p',
 					{ className: 'lead' },
 					this.state.lead
 				),
+				image,
 				React.createElement(
-					'p',
-					null,
-					'Source: ',
-					this.state.source
-				),
-				React.createElement(
-					'p',
-					null,
+					'div',
+					{ className: 'source' },
 					React.createElement(
-						'a',
-						{ href: this.state.link, target: '_blank' },
-						'Original Article'
+						'p',
+						null,
+						'Source:',
+						this.state.source
+					),
+					React.createElement(
+						'button',
+						null,
+						React.createElement(
+							'a',
+							{ href: this.state.link, target: '_blank' },
+							'visit the original article'
+						)
 					)
 				)
 			)
@@ -21505,15 +21568,19 @@ var AttributeAll = React.createClass({
 
 	render: function render() {
 		var attributeOneNodes = this.props.data.map(function (attributeOne) {
-			return React.createElement(AttributeOne, { name: attributeOne.name, options: attributeOne.options });
+			return React.createElement(AttributeOne, { name: attributeOne.name, options: attributeOne.options, color: attributeOne.color });
 		});
 		return React.createElement(
 			'div',
 			{ className: 'attributeAll' },
 			React.createElement(
-				'h3',
+				'p',
 				null,
-				'Now it is your turn to present this article with the following.'
+				React.createElement(
+					'strong',
+					null,
+					'How will you present the story with the following mix?'
+				)
 			),
 			React.createElement(
 				'table',
@@ -21550,7 +21617,7 @@ var AttributeOne = React.createClass({
 			),
 			React.createElement(
 				'td',
-				{ className: 'optionValue' },
+				{ className: 'optionValue', style: { borderColor: this.props.color } },
 				this.state.option
 			)
 		);
@@ -21561,12 +21628,12 @@ React.render(React.createElement(AttributeAll, { data: data }), document.getElem
 },{"../attributes.json":159,"../util.js":162,"react":156}],162:[function(require,module,exports){
 var Util = function(){};
 
-
 Array.prototype.getValueFromRandomIndex = function(){
 	var util = new Util();
 	return this[util.getRandomIntInclusive(0,this.length-1)];
 }
 
+// get the current date
 Date.prototype.yyyymmdd = function() {
 	var yyyy = this.getFullYear().toString();
 	var mm = (this.getMonth()+1).toString(); // getMonth() is zero-based
@@ -21599,6 +21666,13 @@ Util.prototype.buildQuery = function(){
 
 	return query
 };
+
+Util.prototype.buildMediaUrl = function(partialurl){ //partial url will be acquired when api call is parsed
+
+	var static = 'https://static01.nyt.com'; // server where the thumbnails live
+
+	return static + partialurl
+}
 
 module.exports = Util;
 

@@ -14,14 +14,14 @@
     "sass": "^0.5.0"
   },
   "scripts": {
-    "build-css": "sass css/base.scss > css/base.css",
-    "watch-css": "sass --watch css/base.scss:css/base.css ",
+    "build-css": "sass css/base.scss css/base.css",
+    "watch-css": "sass --watch css/base.scss:css/base.css",
     "transform-jsx": "babel scripts/src --out-dir scripts/build",
     "build-js": "browserify scripts/app.js > scripts/bundle.js",
     "watch-jsx": "babel --watch scripts/src --out-dir scripts/build",
     "watch-js": "beefy scripts/app.js:scripts/bundle.js --live",
     "watch": "npm run watch-jsx & npm run watch-js & npm run watch-css",
-    "build": "npm run transform-jsx & npm run build-js & npm run build-css",
+    "build": "npm run build-css & npm run transform-jsx & npm run build-js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

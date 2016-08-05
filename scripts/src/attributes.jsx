@@ -12,10 +12,14 @@ var AttributeAll = React.createClass({
 		});
 		return (
 			<div className="attributeAll">
-				<p id="criteria"><strong>Time to present the story with the new mix!</strong></p>
+				<p id="criteria"><strong>Time to present the story with new criteria!</strong></p>
 				<table className="attributeOne">
 					{attributeOneNodes}
 				</table>
+				<div id="submit" className="bottom">
+					<strong>Got ideas?</strong>
+					<button>submit your approach</button>
+				</div>
 			</div>
 		);
 	}

@@ -53,7 +53,10 @@ var Article = React.createClass({
 				<h1 id="headline" className="headline">{this.state.headline}</h1>
 				<p className="lead">{this.state.lead}</p>
 				<div className="source">
-					<p>Source:{this.state.source}</p>
+					<p>Source: <em>{this.state.source}</em></p>
+				</div>
+				<div id="moreinfo" className="bottom">
+					<strong>For more info</strong>
 					<button><a href={this.state.link} target="_blank">visit the original article</a></button>
 				</div>
 			</div>

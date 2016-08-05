@@ -38,7 +38,11 @@ var AttributeAll = React.createClass({
 				React.createElement(
 					'button',
 					null,
-					'submit your approach'
+					React.createElement(
+						'a',
+						{ href: 'https://goo.gl/forms/qjZYbKrTIE7AKK3T2', target: '_blank' },
+						'submit your approach'
+					)
 				)
 			)
 		);

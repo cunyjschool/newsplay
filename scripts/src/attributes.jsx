@@ -18,7 +18,7 @@ var AttributeAll = React.createClass({
 				</table>
 				<div id="submit" className="bottom">
 					<strong>Got ideas?</strong>
-					<button>submit your approach</button>
+					<button><a href="https://goo.gl/forms/qjZYbKrTIE7AKK3T2" target="_blank">submit your approach</a></button>
 				</div>
 			</div>
 		);

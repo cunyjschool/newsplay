@@ -1,6 +1,6 @@
 $pad1: 1em;
 $pad2: 2em;
-$green: #41B63B;
+$green: #3CBC4D;
 $yellow:#FFE548;
 $cyan: #CFFCFF;
 $pink: #FFEFFF;
@@ -77,8 +77,8 @@ header {
     position:absolute;
     top:$pad2;
     right:$pad2;
-    color:$white;
     background:$green;
+    color:$white;
 
     &.help {
       right:auto;
@@ -97,6 +97,7 @@ header {
   }
 
 }
+
 section {
   height:inherit;
 }
@@ -111,8 +112,7 @@ button {
   cursor: pointer;
 
   &:hover, &:focus {
-    color:$black;
-    background:$pink;
+    background:darken($green,5%);
   }
 }
 table {
@@ -139,15 +139,21 @@ table {
 .main {
   height:100vh;
 }
-
+.bottom {
+  position:absolute;
+  bottom:$pad2*2;
+}
 .article, .attributeAll{
   height:100%;
-  padding:$pad2*2.5 $pad2*4;
+  padding:$pad2*2.5 $pad2*3;
+
+  background-repeat:repeat;
+
+  button {margin-left:$pad1;}
 }
 
 .article {
   background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAIklEQVQIW2NkwAMYiZKM+/7//yJORhTFxOnEZjx5OkFuAAAiuwdb/JJ1TQAAAABJRU5ErkJggg==);
-  background-repeat:repeat;
   border-right:1px solid $pink;
 
   button {
@@ -161,7 +167,14 @@ table {
 
 .attributeAll {
   background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAIklEQVQIW2NkwAMYiZL8/9TjP6P0DhTFxOnEZjx5OkFuAAAi+wcz4XbliwAAAABJRU5ErkJggg==);
-  background-repeat:repeat;
+
+  button {
+    background:$cyan;
+
+    &:hover, &:focus {
+      background: $pink;
+    }
+  }
 }
 
 @media print {
@@ -182,4 +195,8 @@ table {
 
 .introjs-helperNumberLayer {
   display:none;
+}
+
+.introjs-tooltiptext a {
+  text-decoration:underline;
 }

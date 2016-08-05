@@ -71,8 +71,8 @@ header {
     position: absolute;
     top: 2em;
     right: 2em;
-    color: #fff;
-    background: #41B63B; }
+    background: #3CBC4D;
+    color: #fff; }
     header button.help {
       right: auto;
       top: 2em;
@@ -98,8 +98,7 @@ button {
   letter-spacing: 0.1em;
   cursor: pointer; }
   button:hover, button:focus {
-    color: #333;
-    background: #FFEFFF; }
+    background: #36a945; }
 
 table {
   border-spacing: 0 2em; }
@@ -119,13 +118,19 @@ table {
 .main {
   height: 100vh; }
 
+.bottom {
+  position: absolute;
+  bottom: 4em; }
+
 .article, .attributeAll {
   height: 100%;
-  padding: 5em 8em; }
+  padding: 5em 6em;
+  background-repeat: repeat; }
+  .article button, .attributeAll button {
+    margin-left: 1em; }
 
 .article {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAIklEQVQIW2NkwAMYiZKM+/7//yJORhTFxOnEZjx5OkFuAAAiuwdb/JJ1TQAAAABJRU5ErkJggg==);
-  background-repeat: repeat;
   border-right: 1px solid #FFEFFF; }
   .article button {
     background: #FFE548; }
@@ -133,8 +138,11 @@ table {
       background: #CFFCFF; }
 
 .attributeAll {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAIklEQVQIW2NkwAMYiZL8/9TjP6P0DhTFxOnEZjx5OkFuAAAi+wcz4XbliwAAAABJRU5ErkJggg==);
-  background-repeat: repeat; }
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAIklEQVQIW2NkwAMYiZL8/9TjP6P0DhTFxOnEZjx5OkFuAAAi+wcz4XbliwAAAABJRU5ErkJggg==); }
+  .attributeAll button {
+    background: #CFFCFF; }
+    .attributeAll button:hover, .attributeAll button:focus {
+      background: #FFEFFF; }
 
 @media print {
   button {
@@ -153,3 +161,8 @@ table {
     height: 50%; } }
 .introjs-helperNumberLayer {
   display: none; }
+
+.introjs-tooltiptext a {
+  text-decoration: underline; }
+
+/*# sourceMappingURL=base.css.map */

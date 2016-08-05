@@ -21525,8 +21525,21 @@ var Article = React.createClass({
 				React.createElement(
 					'p',
 					null,
-					'Source:',
-					this.state.source
+					'Source: ',
+					React.createElement(
+						'em',
+						null,
+						this.state.source
+					)
+				)
+			),
+			React.createElement(
+				'div',
+				{ id: 'moreinfo', className: 'bottom' },
+				React.createElement(
+					'strong',
+					null,
+					'For more info'
 				),
 				React.createElement(
 					'button',
@@ -21565,13 +21578,27 @@ var AttributeAll = React.createClass({
 				React.createElement(
 					'strong',
 					null,
-					'Time to present the story with the new mix!'
+					'Time to present the story with new criteria!'
 				)
 			),
 			React.createElement(
 				'table',
 				{ className: 'attributeOne' },
 				attributeOneNodes
+			),
+			React.createElement(
+				'div',
+				{ id: 'submit', className: 'bottom' },
+				React.createElement(
+					'strong',
+					null,
+					'Got ideas?'
+				),
+				React.createElement(
+					'button',
+					null,
+					'submit your approach'
+				)
 			)
 		);
 	}

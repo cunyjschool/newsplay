@@ -19,13 +19,27 @@ var AttributeAll = React.createClass({
 				React.createElement(
 					'strong',
 					null,
-					'Time to present the story with the new mix!'
+					'Time to present the story with new criteria!'
 				)
 			),
 			React.createElement(
 				'table',
 				{ className: 'attributeOne' },
 				attributeOneNodes
+			),
+			React.createElement(
+				'div',
+				{ id: 'submit', className: 'bottom' },
+				React.createElement(
+					'strong',
+					null,
+					'Got ideas?'
+				),
+				React.createElement(
+					'button',
+					null,
+					'submit your approach'
+				)
 			)
 		);
 	}

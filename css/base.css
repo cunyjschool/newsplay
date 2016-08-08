@@ -3,8 +3,9 @@ body {
   font: 16px/1.67 "Raleway", sans-serif;
   margin: 0;
   color: #333;
-  box-sizing: border-box;
-  overflow: hidden; }
+  box-sizing: border-box; }
+  body.game {
+    overflow: hidden; }
 
 .col2,
 .col3,
@@ -22,6 +23,13 @@ body {
     content: "";
     display: table;
     clear: both; }
+  .col2.right,
+  .col3.right,
+  .col4.right,
+  .col6.right,
+  .col8.right,
+  .col12.right {
+    float: right; }
 
 .col2 {
   width: 16.67%; }
@@ -62,39 +70,40 @@ h1 {
   font-size: 2em;
   margin-top: -10px; }
 
+small {
+  display: block;
+  font-size: 0.7em;
+  color: #b3b3b3; }
+
 header {
-  height: 80px;
-  border-bottom: 1px solid #FFEFFF; }
-  header .header {
-    position: absolute;
-    top: 20px;
-    left: 40px; }
-    header .header:last-of-type {
-      left: auto;
-      right: 40px; }
-  header a {
-    display: inline-block;
-    margin: 10px 5px 0;
-    text-transform: uppercase;
-    color: #666666;
-    font-weight: 800;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    cursor: pointer; }
-    header a:hover {
-      border-bottom: 0 !important; }
-    header a:first-of-type {
-      border-bottom: 1px solid #ffec7b; }
-    header a:last-of-type {
+  height: 40px;
+  padding: 1em 2em;
+  border-bottom: 1px solid #FFEFFF;
+  position: fixed;
+  background: #fff;
+  z-index: 1; }
+  header * {
+    margin: 0; }
+  header ul li {
+    list-style: none;
+    float: left;
+    margin: 2px 0 0 2em; }
+    header ul li a {
+      text-transform: uppercase;
+      color: #666666;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      cursor: pointer;
       border-bottom: 1px solid #FFEFFF; }
+      header ul li a:hover {
+        border-bottom: 0 !important; }
   header button {
-    position: absolute;
-    right: 0;
     background: #3CBC4D;
     color: #fff; }
 
 section {
-  height: inherit; }
+  height: 100%; }
 
 button {
   border: 0;
@@ -125,7 +134,23 @@ table {
     background: #fff; }
 
 .main {
-  height: 100vh; }
+  height: 100vh;
+  margin-top: 70px; }
+  .main.about-text {
+    padding: 5em 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQIW2NkQAOMIP6/9///MwkygtlgAhmgCIBUAgC8XAfw6yM5oQAAAABJRU5ErkJggg==) repeat; }
+    .main.about-text section {
+      margin: 0 25% 5em; }
+      .main.about-text section .col12 {
+        padding-top: 2em; }
+      .main.about-text section a {
+        text-decoration: underline; }
+      .main.about-text section p {
+        padding-right: 1em; }
+      .main.about-text section img {
+        padding: 5px !important;
+        border-radius: 5px;
+        border: 1px solid #FFEFFF; }
 
 .bottom {
   position: absolute;
@@ -153,21 +178,6 @@ table {
     .attributeAll button:hover, .attributeAll button:focus {
       background: #FFEFFF; }
 
-@media print {
-  button {
-    display: none; }
-
-  .col2,
-  .col3,
-  .col4,
-  .col6,
-  .col8,
-  .col12 {
-    width: 100%; }
-
-  .article, .attributeAll {
-    border: 0 !important;
-    height: 50%; } }
 /* intro js overwrite */
 .introjs-helperNumberLayer {
   display: none; }

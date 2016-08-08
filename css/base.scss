@@ -14,7 +14,9 @@ body {
   margin: 0;
   color:$black;
   box-sizing:border-box;
-  overflow:hidden;
+&.game {
+      overflow:hidden;
+  }
 }
 
 .col2,
@@ -28,6 +30,9 @@ body {
     content: "";
     display: table;
     clear: both;
+  }
+  &.right {
+    float:right;
   }
 }
 
@@ -65,47 +70,46 @@ h1 {
   margin-top:-10px;
 }
 
+small {
+  display:block;
+  font-size:0.7em;
+  color:lighten($black, 50%);
+}
+
 header {
-  height:80px;
+  height:40px;
+  padding:$pad1 $pad2;
   border-bottom: 1px solid $pink;
+  position: fixed;
+  background:$white;
+  z-index:1;
 
-  .header {
-    position:absolute;
-    top:20px;
-    left:40px;
-
-    &:last-of-type {
-      left:auto;
-      right:40px;
-    }
+  * {
+    margin:0;
   }
 
-  a {
-    display: inline-block;
-    margin:10px 5px 0;
-    text-transform: uppercase;
-    color:lighten($black,20%);
-    font-weight:800;
-    font-size:11px;
-    letter-spacing:0.1em;
-    cursor: pointer;
+  ul li {
+    list-style: none;
+    float:left;
+    margin:2px 0 0 2em;
 
-    &:hover {
-      border-bottom:0!important;
-    }
-
-    &:first-of-type {;
-      border-bottom: 1px solid lighten($yellow,10%);
-    }
-
-    &:last-of-type {
+    a {
+      text-transform: uppercase;
+      color:lighten($black,20%);
+      font-weight:800;
+      font-size:11px;
+      letter-spacing:0.1em;
+      cursor: pointer;
       border-bottom: 1px solid $pink;
+
+
+      &:hover {
+        border-bottom:0!important;
+      }
     }
   }
 
   button {
-    position:absolute;
-    right:0;
     background:$green;
     color:$white;
   }
@@ -113,8 +117,9 @@ header {
 }
 
 section {
-  height:inherit;
+  height:100%;
 }
+
 button {
   border:0;
   box-shadow:none;
@@ -153,7 +158,36 @@ table {
 }
 .main {
   height:100vh;
+  margin-top:70px;
+
+  &.about-text {
+    padding:$pad2*2.5 0;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQIW2NkQAOMIP6/9///MwkygtlgAhmgCIBUAgC8XAfw6yM5oQAAAABJRU5ErkJggg==) repeat;
+
+    section {
+      margin:0 25% 5em;
+
+      .col12 {
+        padding-top:$pad2;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+
+      p {
+        padding-right:1em;
+      }
+
+      img {
+        padding:5px!important;
+        border-radius:5px;
+        border:1px solid $pink;
+      }
+    }
+  }
 }
+
 .bottom {
   position:absolute;
   bottom:$pad2*2;
@@ -192,21 +226,6 @@ table {
   }
 }
 
-@media print {
-  button {display:none;}
-  .col2,
-  .col3,
-  .col4,
-  .col6,
-  .col8,
-  .col12 {
-    width:100%;
-  }
-  .article, .attributeAll {
-    border:0!important;
-    height:50%;
-  }
-}
 
 /* intro js overwrite */
 .introjs-helperNumberLayer {

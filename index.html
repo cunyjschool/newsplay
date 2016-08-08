@@ -2,26 +2,23 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>NewsPlay</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway:800,500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/introjs.css">
     <script src="scripts/intro.js"></script>
   </head>
-  <body>
+  <body class="game">
     <header class="col12">
-      <div class="header">
-        <h3>NewsPlay
-          <span>practice creativity in covering the news</span>
-        </h3>
-      </div>
-      <div class="header col3">
-        <a href="#" class="help" id="help">game rules</a>
-        <a href="about" class="about">about</a>
-        <button id="generate">generate new mix</button>
-      </div>
-    </header>
+      <h3 class="col8"><a href="/">NewsPlay</a>
+        <span>practice creativity in covering the news</span>
+      </h3>
+      <ul class="col2">
+        <li><a class="help" id="help" href="#">game rules</a></li>
+        <li><a class="about" href="about">about</a></li>
+      </ul>
+      <button id="generate">generate new mix</button>
     </header>
     <div class="main col12">
       <section class="col6" id="article"></section>

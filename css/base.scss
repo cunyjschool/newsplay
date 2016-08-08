@@ -70,10 +70,14 @@ h1 {
   margin-top:-10px;
 }
 
-small {
+label, small {
   display:block;
   font-size:0.7em;
   color:lighten($black, 50%);
+}
+
+small {
+  margin:0 0 $pad1 0;
 }
 
 header {
@@ -249,10 +253,122 @@ table {
   }
 }
 
+@media print {
+  button {display:none;}
+  .col2,
+  .col3,
+  .col4,
+  .col6,
+  .col8,
+  .col12 {
+    width:100%;
+  }
+  .article, .attributeAll {
+    border:0!important;
+    height:50%;
+  }
+}
+
 .introjs-button {
   padding:10px!important;
 }
 
 .introjs-skipbutton {
   float: left;
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+  .col2 {width:25%;}
+  .col8 {width:50%;}
+  table tr td:first-of-type {padding-right:2em;}
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+  h1 {font-size:1.5em;}
+  p {font-size:0.85em;}
+  header {
+    h3 span {font-size:0.65em;}
+    ul li a, button {
+      margin-top:4px;
+      font-size:9px;
+    }
+  }
+  .article, .attributeAll{
+    padding:$pad2*2 $pad2;
+  }
+}
+
+@media only screen
+and (min-device-width : 320px) {
+  body {
+    font-size:0.65em;
+    &.game {overflow:visible;}
+  }
+  .col2,
+  .col4,
+  .col6,
+  .col8 {
+    width:100%;
+    float:none;
+  }
+  .right {
+    float:none;
+  }
+  button {
+    padding: 4px;
+  }
+  .bottom {
+    position:relative;
+    strong {display:none;}
+    button {
+      margin:40px 0 0 0;
+      font-size:9px;
+    }
+  }
+  section {
+    height:auto;
+  }
+  header {
+    padding:0;
+    h3, ul, button {
+      position:absolute;
+      top:10px;
+      left:20px;
+      span {display:none;}
+    }
+    ul {
+      left:80px;
+      li a {font-size:8px;}
+    }
+    button {
+      top:13px;
+      left:auto;
+      right:10px;
+      font-size:6px;
+    }
+  }
+  .main {
+    margin-top:40px;
+    &.about-text {
+      padding:0!important;
+      section {
+        margin:0;
+        width:90%;
+        padding:20px;
+        label, img {display:none}
+      }
+    }
+  }
+  .article, .attributeAll{
+    padding:20px;
+    border-right:0;
+  }
+  .article {
+    border-bottom:1px solid $pink;
+  }
 }

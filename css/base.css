@@ -65,25 +65,32 @@ h1 {
 header {
   height: 80px;
   border-bottom: 1px solid #FFEFFF; }
-  header h3 {
-    margin: 1em 2em 0; }
+  header .header {
+    position: absolute;
+    top: 20px;
+    left: 40px; }
+    header .header:last-of-type {
+      left: auto;
+      right: 40px; }
+  header a {
+    display: inline-block;
+    margin: 10px 5px 0;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    cursor: pointer; }
+    header a:hover {
+      border-bottom: 0 !important; }
+    header a:first-of-type {
+      border-bottom: 1px solid #fbd700; }
+    header a:last-of-type {
+      border-bottom: 1px solid #ffbcff; }
   header button {
     position: absolute;
-    top: 2em;
-    right: 2em;
+    right: 0;
     background: #3CBC4D;
     color: #fff; }
-    header button.help {
-      right: auto;
-      top: 2em;
-      margin: 2px 0 0 10px;
-      border-radius: 50%;
-      background: #CFFCFF;
-      color: #4d4d4d; }
-      header button.help:before {
-        content: "?";
-        position: absolute;
-        margin: -7px 0 0 -3px; }
 
 section {
   height: inherit; }
@@ -96,7 +103,8 @@ button {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 0.1em;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 11px; }
   button:hover, button:focus {
     background: #36a945; }
 

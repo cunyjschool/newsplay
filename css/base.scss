@@ -69,31 +69,44 @@ header {
   height:80px;
   border-bottom: 1px solid $pink;
 
-  h3 {
-    margin:$pad1 $pad2 0;
+  .header {
+    position:absolute;
+    top:20px;
+    left:40px;
+
+    &:last-of-type {
+      left:auto;
+      right:40px;
+    }
+  }
+
+  a {
+    display: inline-block;
+    margin:10px 5px 0;
+    text-transform: uppercase;
+    font-weight:800;
+    font-size:11px;
+    letter-spacing:0.1em;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom:0!important;
+    }
+
+    &:first-of-type {
+      border-bottom: 1px solid darken($yellow,15%);
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid darken($pink,10%);
+    }
   }
 
   button {
     position:absolute;
-    top:$pad2;
-    right:$pad2;
+    right:0;
     background:$green;
     color:$white;
-
-    &.help {
-      right:auto;
-      top:$pad2;
-      margin:2px 0 0 10px;
-      border-radius:50%;
-      background:$cyan;
-      color:lighten($black,10%);
-
-      &:before {
-        content:"?";
-        position: absolute;
-        margin:-7px 0 0 -3px;
-      }
-    }
   }
 
 }
@@ -110,6 +123,7 @@ button {
   font-weight:800;
   letter-spacing:0.1em;
   cursor: pointer;
+  font-size:11px;
 
   &:hover, &:focus {
     background:darken($green,5%);

@@ -41,3 +41,4 @@ function startIntro(){
 };
 
 document.getElementById("help").onclick = function(){startIntro();};
+document.getElementById("generate").onclick= function(){window.location.reload();};

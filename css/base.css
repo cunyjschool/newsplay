@@ -76,6 +76,7 @@ header {
     display: inline-block;
     margin: 10px 5px 0;
     text-transform: uppercase;
+    color: #666666;
     font-weight: 800;
     font-size: 11px;
     letter-spacing: 0.1em;
@@ -83,9 +84,9 @@ header {
     header a:hover {
       border-bottom: 0 !important; }
     header a:first-of-type {
-      border-bottom: 1px solid #fbd700; }
+      border-bottom: 1px solid #ffec7b; }
     header a:last-of-type {
-      border-bottom: 1px solid #ffbcff; }
+      border-bottom: 1px solid #FFEFFF; }
   header button {
     position: absolute;
     right: 0;
@@ -167,10 +168,26 @@ table {
   .article, .attributeAll {
     border: 0 !important;
     height: 50%; } }
+/* intro js overwrite */
 .introjs-helperNumberLayer {
   display: none; }
 
+.introjs-tooltip {
+  padding: 40px !important; }
+
 .introjs-tooltiptext a {
   text-decoration: underline; }
+
+.introjs-bullets ul li a {
+  width: 8px !important;
+  height: 8px !important; }
+  .introjs-bullets ul li a.active, .introjs-bullets ul li a:hover {
+    background: #FFE548 !important; }
+
+.introjs-button {
+  padding: 10px !important; }
+
+.introjs-skipbutton {
+  float: left; }
 
 /*# sourceMappingURL=base.css.map */

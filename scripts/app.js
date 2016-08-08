@@ -15,7 +15,7 @@ function startIntro(){
           },
           {
             element: "#criteria",
-            intro: "Look at the constraints on this side for a suggested story type, a supplemental media type, etc.",
+            intro: "You also have a new set of constraints to cover this story differently, including a new story type, supplemental media type, etc.",
             position: "left"
           },
           {
@@ -31,7 +31,7 @@ function startIntro(){
           },
           {
             element: "#generate",
-            intro: "For a fresh combination, generate a new story and options.",
+            intro: "Generate a fresh combination if you are stuck!",
             position: "left"
           }
         ]

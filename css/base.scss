@@ -84,6 +84,7 @@ header {
     display: inline-block;
     margin:10px 5px 0;
     text-transform: uppercase;
+    color:lighten($black,20%);
     font-weight:800;
     font-size:11px;
     letter-spacing:0.1em;
@@ -93,12 +94,12 @@ header {
       border-bottom:0!important;
     }
 
-    &:first-of-type {
-      border-bottom: 1px solid darken($yellow,15%);
+    &:first-of-type {;
+      border-bottom: 1px solid lighten($yellow,10%);
     }
 
     &:last-of-type {
-      border-bottom: 1px solid darken($pink,10%);
+      border-bottom: 1px solid $pink;
     }
   }
 
@@ -207,10 +208,32 @@ table {
   }
 }
 
+/* intro js overwrite */
 .introjs-helperNumberLayer {
   display:none;
 }
 
+.introjs-tooltip {
+  padding:40px!important;
+}
+
 .introjs-tooltiptext a {
   text-decoration:underline;
+}
+
+.introjs-bullets ul li a {
+  width: 8px!important;
+  height: 8px!important;
+
+  &.active,&:hover{
+    background: $yellow!important;
+  }
+}
+
+.introjs-button {
+  padding:10px!important;
+}
+
+.introjs-skipbutton {
+  float: left;
 }

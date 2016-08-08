@@ -304,7 +304,8 @@ and (orientation : portrait) {
 }
 
 @media only screen
-and (min-device-width : 320px) {
+and (min-device-width : 320px)
+and (max-device-width: 568px) {
   body {
     font-size:0.65em;
     &.game {overflow:visible;}

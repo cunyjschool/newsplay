@@ -13,7 +13,7 @@
     <header class="col12">
       <h3 class="col6">NewsPlay
         <span>a quick game to practice creativity in reporting</span>
-        <button class="help" onClick="startIntro();"></button>
+        <button class="help" id="help"></button>
       </h3>
       <div class="col6">
         <button id="generate" onClick="window.location.reload();">generate new mix</button>
@@ -25,47 +25,5 @@
       <section class="col6" id="attributes"></section>
     </div>
     <script src="scripts/bundle.js"></script>
-    <script>
-      function startIntro(){
-        var intro = introJs();
-            intro.setOptions({
-              steps: [
-                {
-                  intro: "Hi! Welcome to NewsPlay."
-                },
-                {
-                  element: "#headline",
-                  intro: "You have one fresh article from the New York Times <a href='http://developer.nytimes.com/article_search_v2.json' target='_blank'>Article Search API</a>.",
-                  position: 'right'
-                },
-                {
-                  element: '#criteria',
-                  intro: '...and a set of new criteria to re-think about reporting this article.',
-                  position: 'left'
-                },
-                {
-                  element: '#moreinfo',
-                  intro: 'Read the full article!',
-                  position:'top'
-                },
-                {
-                  element: '#submit',
-                  intro: '...and submit your orignial idea to report this differently!',
-                  position: 'top'
-                },
-                {
-                  element: '#generate',
-                  intro: "Remember, there are always more interesting combinations.",
-                  position: 'left'
-                },
-                {
-                  intro:"Have fun! NewsPlay is brought to you by <a href='https://www.journalism.cuny.edu/'>CUNY Journalism School</a>."
-                }
-              ]
-            });
-
-        intro.start();
-      }
-    </script>
   </body>
 </html>

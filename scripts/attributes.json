@@ -19,7 +19,7 @@
     "color":"#B4436C"
 },
 {
-    "name": "Audience Age",
+    "name": "Audience Age (optional)",
     "options":["18 and under","twentysomethings","30+","seniors"],
     "color":"#995FA3"
 }]

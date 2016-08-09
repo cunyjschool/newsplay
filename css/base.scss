@@ -120,10 +120,6 @@ header {
 
 }
 
-section {
-  height:100%;
-}
-
 button {
   border:0;
   box-shadow:none;
@@ -164,11 +160,17 @@ table {
   height:100vh;
   margin-top:70px;
 
+  section {
+    height:100%; /* game: set section height to follow screen */
+  }
+
+
   &.about-text {
     padding:$pad2*2.5 0;
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQIW2NkQAOMIP6/9///MwkygtlgAhmgCIBUAgC8XAfw6yM5oQAAAABJRU5ErkJggg==) repeat;
 
     section {
+      height:auto; /* about: set section height to follow content */
       margin:0 25% 5em;
 
       .col12 {

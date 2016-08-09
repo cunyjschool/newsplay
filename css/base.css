@@ -105,9 +105,6 @@ header {
     background: #3CBC4D;
     color: #fff; }
 
-section {
-  height: 100%; }
-
 button {
   border: 0;
   box-shadow: none;
@@ -139,10 +136,15 @@ table {
 .main {
   height: 100vh;
   margin-top: 70px; }
+  .main section {
+    height: 100%;
+    /* game: set section height to follow screen */ }
   .main.about-text {
     padding: 5em 0;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAH0lEQVQIW2NkQAOMIP6/9///MwkygtlgAhmgCIBUAgC8XAfw6yM5oQAAAABJRU5ErkJggg==) repeat; }
     .main.about-text section {
+      height: auto;
+      /* about: set section height to follow content */
       margin: 0 25% 5em; }
       .main.about-text section .col12 {
         padding-top: 2em; }

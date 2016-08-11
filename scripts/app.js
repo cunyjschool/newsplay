@@ -15,11 +15,11 @@ function startIntro(){
           },
           {
             element: "#criteria",
-            intro: "You also have a new set of constraints to cover this story differently, including a new story type, supplemental media type, etc.",
+            intro: "You also have a new set of constraints. Use them to come up with a <strong>follow-up</strong> story, including a new story type, supplemental media type, etc.",
             position: "left"
           },
           {
-            intro: "Use the next 5 minutes to develop an approach to that story that you could pitch to a publication editor for a publication of your choice."
+            intro: "Use the next 5 minutes to develop an approach to the follow-up story that you could pitch to a publication editor for a publication of your choice."
           },
           {
             intro:"Draft a 3- to 5-sentence pitch. If you feel inspired by the supplemental media type or the platform, add your ideas for additional social media content in your pitch."

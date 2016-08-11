@@ -12,7 +12,7 @@ var AttributeAll = React.createClass({
 		});
 		return (
 			<div className="attributeAll">
-				<p id="criteria"><strong>Time to present the story with new criteria!</strong></p>
+				<p id="criteria"><strong>Time to present a follow-up story with new criteria!</strong></p>
 				<table className="attributeOne">
 					{attributeOneNodes}
 				</table>

@@ -246,7 +246,7 @@ table {
     padding: 4em 2em; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
   body {
-    font-size: 0.65em; }
+    font-size: 0.75em; }
     body.game {
       overflow: visible; }
 
@@ -271,9 +271,6 @@ table {
       margin: 40px 0 0 0;
       font-size: 9px; }
 
-  section {
-    height: auto; }
-
   header {
     padding: 0; }
     header h3, header ul, header button {
@@ -293,7 +290,10 @@ table {
       font-size: 6px; }
 
   .main {
+    height: auto;
     margin-top: 40px; }
+    .main section {
+      height: auto; }
     .main.about-text {
       padding: 0 !important; }
       .main.about-text section {
@@ -304,7 +304,7 @@ table {
           display: none; }
 
   .article, .attributeAll {
-    padding: 20px;
+    padding: 4em 2em 0;
     border-right: 0; }
 
   .article {

@@ -19,7 +19,7 @@ var AttributeAll = React.createClass({
 				React.createElement(
 					'strong',
 					null,
-					'Time to present the story with new criteria!'
+					'Time to present a follow-up story with new criteria!'
 				)
 			),
 			React.createElement(

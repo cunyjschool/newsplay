@@ -309,7 +309,7 @@ and (orientation : portrait) {
 and (min-device-width : 320px)
 and (max-device-width: 568px) {
   body {
-    font-size:0.65em;
+    font-size:0.75em;
     &.game {overflow:visible;}
   }
   .col2,
@@ -333,9 +333,6 @@ and (max-device-width: 568px) {
       font-size:9px;
     }
   }
-  section {
-    height:auto;
-  }
   header {
     padding:0;
     h3, ul, button {
@@ -356,7 +353,11 @@ and (max-device-width: 568px) {
     }
   }
   .main {
+    height:auto;
     margin-top:40px;
+    section {
+      height:auto;
+    }
     &.about-text {
       padding:0!important;
       section {
@@ -368,7 +369,7 @@ and (max-device-width: 568px) {
     }
   }
   .article, .attributeAll{
-    padding:20px;
+    padding:$pad2*2 $pad2 0;
     border-right:0;
   }
   .article {

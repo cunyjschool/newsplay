@@ -62,9 +62,16 @@ h1, h2, h3, h4 {
   font-weight: 800; }
   h1 span, h2 span, h3 span, h4 span {
     display: inline-block;
-    padding-left: 1em;
+    margin-left: 1em;
     font-size: 0.9em;
     font-weight: 500; }
+    h1 span.version, h2 span.version, h3 span.version, h4 span.version {
+      font-size: 0.5em;
+      padding: 0 7px;
+      margin-left: 2px;
+      color: #333;
+      background: #CFFCFF;
+      border-radius: 5px; }
 
 h1 {
   font-size: 2em;

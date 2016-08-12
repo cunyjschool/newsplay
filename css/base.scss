@@ -7,6 +7,7 @@ $pink: #FFEFFF;
 $white:#fff;
 $black:#333;
 $font-stack:"Raleway", sans-serif;
+$radius: 5px;
 
 body {
   background: $white;
@@ -59,9 +60,18 @@ h1,h2,h3,h4 {
 
   span {
     display:inline-block;
-    padding-left:$pad1;
+    margin-left:$pad1;
     font-size: 0.9em;
     font-weight: 500;
+
+    &.version {
+      font-size:0.5em;
+      padding:0 7px;
+      margin-left:2px;
+      color:$black;
+      background:$cyan;
+      border-radius:$radius;
+    }
   }
 }
 
@@ -123,7 +133,7 @@ header {
 button {
   border:0;
   box-shadow:none;
-  border-radius:5px;
+  border-radius:$radius;
   padding:1em;
   text-transform: uppercase;
   font-weight:800;
@@ -152,7 +162,7 @@ table {
     text-transform: uppercase;
     display:inline;
     padding:0.4em 0.8em;
-    border-radius:5px;
+    border-radius:$radius;
     background:$white;
   }
 }
@@ -187,7 +197,7 @@ table {
 
       img {
         padding:5px!important;
-        border-radius:5px;
+        border-radius:$radius;
         border:1px solid $pink;
       }
     }
